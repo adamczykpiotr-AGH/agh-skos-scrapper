@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "as-table": "^1.0.36",
+    "cli-progress": "^3.9.0",
     "puppeteer": "^1.12.1"
   }
 }
