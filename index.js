@@ -9,7 +9,7 @@ async function getInfo(browser, urlList) {
     let data = [];
 
     for (let [index, url] of urlList.entries()) {
-        progress.update(index);
+        progress.update(index + 1);
 
         await page.goto(url, {
             timeout: 0 //fix for puppetier 30s timeout
@@ -48,6 +48,8 @@ async function getInfo(browser, urlList) {
             };
         }) );
     }
+    
+    progress.stop();
 
     return data;
 }
@@ -89,8 +91,9 @@ async function getInfo(browser, urlList) {
 
     //gather data
     const employeeData = await getInfo(browser, employees);
+
+    //do something with data
     console.table(employeeData);
 
     await browser.close();
-    progress.stop();
 })();
