@@ -19,7 +19,7 @@ async function getInfo(browser, urlList) {
         data.push( await page.evaluate(() => {
             const nameAndTitle = document.getElementsByTagName('h1')[0].innerText;
             const name = nameAndTitle.split(',')[0];
-            let title = nameAndTitle.split(',')[1].substr(1); //remove whitespace
+            const title = nameAndTitle.split(',')[1].substr(1); //remove whitespace
 
             const entity = document.getElementsByClassName('organization-name')[0].innerText;
             const organisationUnit =  document.getElementsByClassName('organization-unit');
